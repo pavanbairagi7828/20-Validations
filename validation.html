@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with 20 Validations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    .error-message {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .success {
+      color: green;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Form with 20 Validations</h1>
+<form id="validationForm">
+  
+  <!-- 1. Name -->
+  <div class="form-group">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]{3,50}">
+    <span class="error-message" id="nameError">Name must be between 3 and 50 alphabetic characters.</span>
+  </div>
+  
+  <!-- 2. Email -->
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+    <span class="error-message" id="emailError">Enter a valid email address.</span>
+  </div>
+  
+  <!-- 3. Password -->
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required pattern=".{6,}">
+    <span class="error-message" id="passwordError">Password must be at least 6 characters.</span>
+  </div>
+  
+  <!-- 4. Confirm Password -->
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" required>
+    <span class="error-message" id="confirmPasswordError">Passwords must match.</span>
+  </div>
+  
+  <!-- 5. Phone Number -->
+  <div class="form-group">
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required pattern="\d{10}">
+    <span class="error-message" id="phoneError">Phone number must be 10 digits.</span>
+  </div>
+  
+  <!-- 6. Age -->
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required min="18" max="100">
+    <span class="error-message" id="ageError">Age must be between 18 and 100.</span>
+  </div>
+  
+  <!-- 7. Gender -->
+  <div class="form-group">
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select...</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <span class="error-message" id="genderError">Please select your gender.</span>
+  </div>
+  
+  <!-- 8. Address -->
+  <div class="form-group">
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required minlength="10"></textarea>
+    <span class="error-message" id="addressError">Address must be at least 10 characters.</span>
+  </div>
+  
+  <!-- 9. Date of Birth -->
+  <div class="form-group">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+    <span class="error-message" id="dobError">Enter a valid date of birth.</span>
+  </div>
+  
+  <!-- 10. Website -->
+  <div class="form-group">
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" required>
+    <span class="error-message" id="websiteError">Enter a valid URL.</span>
+  </div>
+  
+  <!-- 11. Credit Card -->
+  <div class="form-group">
+    <label for="cc">Credit Card Number:</label>
+    <input type="text" id="cc" name="cc" required pattern="\d{16}">
+    <span class="error-message" id="ccError">Credit card must be 16 digits.</span>
+  </div>
+  
+  <!-- 12. Expiry Date -->
+  <div class="form-group">
+    <label for="expiry">Expiry Date:</label>
+    <input type="month" id="expiry" name="expiry" required>
+    <span class="error-message" id="expiryError">Enter a valid expiry date.</span>
+  </div>
+  
+  <!-- 13. CVV -->
+  <div class="form-group">
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" required pattern="\d{3}">
+    <span class="error-message" id="cvvError">CVV must be 3 digits.</span>
+  </div>
+  
+  <!-- 14. Zip Code -->
+  <div class="form-group">
+    <label for="zip">Zip Code:</label>
+    <input type="text" id="zip" name="zip" required pattern="\d{5}">
+    <span class="error-message" id="zipError">Zip code must be 5 digits.</span>
+  </div>
+  
+  <!-- 15. Employment Status -->
+  <div class="form-group">
+    <label for="employment">Employment Status:</label>
+    <select id="employment" name="employment" required>
+      <option value="">Select...</option>
+      <option value="employed">Employed</option>
+      <option value="unemployed">Unemployed</option>
+      <option value="student">Student</option>
+    </select>
+    <span class="error-message" id="employmentError">Select your employment status.</span>
+  </div>
+  
+  <!-- 16. Range Slider -->
+  <div class="form-group">
+    <label for="satisfaction">Satisfaction Level (1-10):</label>
+    <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" required>
+    <span class="error-message" id="satisfactionError">Select your satisfaction level.</span>
+  </div>
+  
+  <!-- 17. Favorite Color -->
+  <div class="form-group">
+    <label for="color">Favorite Color:</label>
+    <input type="color" id="color" name="color" required>
+    <span class="error-message" id="colorError">Pick your favorite color.</span>
+  </div>
+  
+  <!-- 18. Agreement -->
+  <div class="form-group">
+    <label>
+      <input type="checkbox" id="agreement" required> I agree to the terms and conditions.
+    </label>
+    <span class="error-message" id="agreementError">You must agree to the terms.</span>
+  </div>
+  
+  <!-- 19. Upload File -->
+  <div class="form-group">
+    <label for="fileUpload">Upload Profile Picture:</label>
+    <input type="file" id="fileUpload" required>
+    <span class="error-message" id="fileUploadError">Please upload a file.</span>
+  </div>
+  
+  <!-- 20. Nickname -->
+  <div class="form-group">
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" name="nickname" required pattern=".{3,15}">
+    <span class="error-message" id="nicknameError">Nickname must be 3-15 characters.</span>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div class="success" id="successMessage">Form successfully submitted and data saved in localStorage!</div>
+
+<script>
+  const form = document.getElementById('validationForm');
+
+  form.addEventListener('input', (event) => {
+    const target = event.target;
+    const error = document.getElementById(target.id + 'Error');
+
+    if (target.validity.valid) {
+      error.style.display = 'none';
+    } else {
+      error.style.display = 'block';
+    }
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Check Confirm Password
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    if (password !== confirmPassword) {
+      document.getElementById('confirmPasswordError').style.display = 'block';
+      return;
+    }
+
+    // Collect and save data to localStorage
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => (data[key] = value));
+    localStorage.setItem('formData', JSON.stringify(data));
+
+    // Show success message
+    document.getElementById('successMessage').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
